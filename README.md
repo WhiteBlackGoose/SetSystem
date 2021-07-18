@@ -1,6 +1,19 @@
 # Set System
 
-This repo is about ideas for a set-based programming languages. Set-based as opposed to type-based.
+Most programming languages today are type-based, that is, any value or variable has some type. It might
+be dynamic or static typed, but the principle of types remains.
+
+The problems with typed systems are constraints. It is hard to impossible to constrain a type to some
+particular range of values (for example, limit string to be only consisting of digits) or vice versa,
+expand the type to a range of values (int and strings). Some languages offer discriminated unions
+and dependent types, but they might not fulfill our needs completely.
+
+Hence, here we suggest a system based on sets. A value or expression doesn't have a type. But it may or
+may not belong to some sets. Functions have domains, on which they must be fully defined. However, if the
+caller of the function has not proven that their input belongs to the function's domain, the program does
+not compile.
+
+It will let us write exception-less and error-less code in almost natural mathematic language.
 
 ## Basic concepts
 
