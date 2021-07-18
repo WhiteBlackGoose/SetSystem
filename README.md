@@ -18,6 +18,48 @@ Function maps elements from the domain to the range. It is only possible to pass
 
 A literal has no type, but it may be interpreted as an element from a set
 
+## Values
+
+A value is an expression or a literal:
+```fs
+let a = 1
+```
+or
+```fs
+let a = add 1 3
+```
+There's no type, instead, it's some expression.
+
+## Sets
+
+We can unite values:
+```fs
+let set A = 1 | 2 | '3'
+```
+We can use set builder notation:
+```fs
+let set B = all i from A where i in Ints
+```
+Finally, we can unite and intersect sets:
+```fs
+let set C = (A \/ B) /\ (1 | 3 | A)
+```
+
+## Functions
+
+A function has a domain and a range, here's its declaration:
+```fs
+let map add: Ints x Ints -> Ints
+```
+Here's its definition:
+```fs
+        add a b = a + b
+```
+
+## Set transformations
+
+Described in other languages as "data structures", ... (coming soon)
+
 ## Example 1: parsing from string
 
 A set of digits (typeless literals) in chars:
