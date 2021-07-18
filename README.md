@@ -110,4 +110,5 @@ Now, the only value it returns is the value of the only argument mapped through 
 
 ## Runtime
 
-Not thought yet.
+Sets are unions or conditions so far, hence, it will be a hashset for unions and functor for conditions (maybe).
+
