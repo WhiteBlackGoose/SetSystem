@@ -56,9 +56,27 @@ Here's its definition:
         add a b = a + b
 ```
 
-## Set transformations
+## Higher-order sets (data structures)
 
-Described in other languages as "data structures", ... (coming soon)
+This may be a convenient way to work with sets too.
+
+### Tuples
+
+Tuple is an ordered set. Tuple of N elements is an element of Cartesian product
+of corresponding elements' supersets. For example, the following is true:
+```fs
+(1, 2) in Ints x Ints
+```
+This is also true:
+```fs
+let set A = { 1 }
+let set B = { 2 }
+(1, 2) in A x B
+```
+
+### Strings
+
+...
 
 ## Example 1: parsing from string
 
