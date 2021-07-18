@@ -18,7 +18,7 @@ Function maps elements from the domain to the range. It is only possible to pass
 
 A literal has no type, but it may be interpreted as an element from a set
 
-## Examples
+## Example 1: parsing from string
 
 A set of digits (typeless literals) in chars:
 
@@ -68,6 +68,45 @@ and returns an element of range, which is `Ints`. Note that range is also a set 
 
 `Parse`'s domain is a subset of `Strings` (by definition), so if we want to parse an arbitrary string, we
 must prove that it belongs to that subset.
+
+## Example 2: set madness
+
+The code:
+```fs
+let set NonEmptySets = all u from U where exists e in U: e in u
+
+// randomness cannot exist, so we need a determinant for our "random" function
+let map GetRandomSet: NonEmptySets -> NonEmptySets
+        GetRandomSet i = ...
+
+let map Something: (GetRandomSet GetRandomSet GetRandomSet) -> GetRandomSet
+        Something a = (GetRandomSet, GetRandomSet)
+```
+
+Explanation. This code is pretty self-explanatory, it finds all non-empty existing sets. Not clear though how we can
+easily check the conditions of `exists e in U` though.
+```fs
+let set NonEmptySets = all u from U where exists e in U: e in u
+```
+
+```fs
+// randomness cannot exist, so we need a determinant for our "random" function
+let map GetRandomSet: NonEmptySets -> NonEmptySets
+        GetRandomSet i = ...
+```
+That's a function which takes a non-empty set as an argument and maps it to another non-empty set. For now
+we don't care about the relation ("implementation").
+
+The most interesting part:
+```fs
+let map Something: (GetRandomSet GetRandomSet) -> GetRandomSet
+        Something a = GetRandomSet a
+```
+`GetRandomSet` maps a non-empty set to a non-empty set. As an argument it got a `GetRandomSet` which *is* a non-empty set, because
+`GetRandomSet` is a function and the set of non-empty sets is not empty (are we to prove it?).
+
+Now, the only value it returns is the value of the only argument mapped through `GetRandomSet`.
+
 
 ## Runtime
 
