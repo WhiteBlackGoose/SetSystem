@@ -62,7 +62,7 @@ This may be a convenient way to work with sets too.
 
 ### Tuples
 
-Tuple is an ordered set. Tuple of N elements is an element of Cartesian product
+`Tuple` is an ordered set. `Tuple` of N elements is an element of Cartesian product
 of corresponding elements' supersets. For example, the following is true:
 ```fs
 (1, 2) in Ints x Ints
@@ -76,7 +76,10 @@ let set B = { 2 }
 
 ### Strings
 
-...
+String of elemenets of alphabet A is a an element of the set `StringsOf(A)`. For an element `s` from
+`StringsOf(A)` one of the following is true:
+1. It is empty (denoted as `[]`)
+2. There exists `c in A` such that the string is a tuple of `c` and `h` (TODO) for some `h in StringsOf(A)`.
 
 ## Example 1: parsing from string
 
